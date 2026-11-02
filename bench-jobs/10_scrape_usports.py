@@ -16,7 +16,7 @@ _here = os.path.dirname(os.path.abspath(__file__))
 _s = importlib.util.spec_from_file_location('sc', os.path.join(_here, '01_scrape_usportshoops.py'))
 sc = importlib.util.module_from_spec(_s); _s.loader.exec_module(sc)       # reuse the team-name list
 BASE = 'https://en.usports.ca'
-HEADERS = {'User-Agent': 'TheBench-data-pipeline (contact: ' + os.environ.get('BENCH_CONTACT', 'not provided') + ')'}
+HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; TheBench/1.0; +mailto:' + os.environ.get('BENCH_CONTACT', 'not provided') + ')', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'en-CA,en;q=0.9'}
 SEASON = '2026-27'
 
 def _ma(s):
